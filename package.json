@@ -1,0 +1,33 @@
+{
+  "name": "design-copier",
+  "version": "0.1.0",
+  "description": "webpage design copier to transfer in a development app",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "design-copier": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\" && node build/index.js",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "0.6.0",
+    "autoprefixer": "^10.4.14",
+    "cheerio": "^1.0.0",
+    "css-tree": "^3.1.0",
+    "postcss": "^8.5.3",
+    "puppeteer": "^24.2.1",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/css-tree": "^2.3.10",
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}
