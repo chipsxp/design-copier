@@ -1,29 +1,29 @@
 # design-copier MCP Server
 
-webpage design copier to transfer in a development app
+A webpage design extraction tool that captures and converts web designs for development
 
-This is a TypeScript-based MCP server that implements a simple notes system. It demonstrates core MCP concepts by providing:
+This is a TypeScript-based MCP server that implements a web design copying system. It allows you to:
 
-- Resources representing text notes with URIs and metadata
-- Tools for creating new notes
-- Prompts for generating summaries of notes
+- Capture webpage styles and HTML structure
+- Extract and convert CSS to Tailwind classes
+- Apply extracted styles to different frontend frameworks
 
 ## Features
 
-### Resources
-- List and access notes via `note://` URIs
-- Each note has a title, content and metadata
-- Plain text mime type for simple content access
-
 ### Tools
-- `create_note` - Create new text notes
-  - Takes title and content as required parameters
-  - Stores note in server state
+- `designcopier_snapshot` - Capture webpage or element styles
+  - Takes a URL and optional CSS selector
+  - Returns HTML and CSS styles from the target
 
-### Prompts
-- `summarize_notes` - Generate a summary of all stored notes
-  - Includes all note contents as embedded resources
-  - Returns structured prompt for LLM summarization
+- `designcopier_extract` - Extract styles and convert to different formats
+  - Processes HTML and CSS content
+  - Supports conversion to Tailwind classes
+  - Can output in CSS, Tailwind, or React formats
+
+- `designcopier_apply` - Apply extracted styles to target framework
+  - Takes extracted styles and applies them to a component
+  - Supports React (with styled-components)
+  - Creates ready-to-use component templates
 
 ## Clone Repo and Development
 
@@ -88,3 +88,4 @@ npm run inspector
 ```
 
 The Inspector will provide a URL to access debugging tools in your browser.
+
